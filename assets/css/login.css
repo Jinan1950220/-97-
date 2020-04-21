@@ -30,6 +30,26 @@ body {
     text-align: center;
     margin: 18px auto;
 }
+.layui-form {
+    padding: 0 30px;
+}
+.layui-form a{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.layui-form-item {
+    position: relative;
+}
+.layui-form-item .layui-icon{
+    position: absolute;
+    top:12px;
+    left:8px;
+}
+input.layui-input {
+    padding-left: 30px;
+}
 .register {
     display: none;
 }
