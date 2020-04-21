@@ -21,7 +21,29 @@ $(function () {
             success: (res) => {
                 layer.msg(res.message);
                 if (res.status === 0) {
+                    localStorage.setItem('token', res.token);
                     $('.register').hide().prev().show();
+                }
+            }
+        })
+    })
+
+    //------------------------登录-------------
+    $('.login form').on('submit', function (e) {
+        e.preventDefault();
+        //获取账号与密码
+        // 提交接口，完成登录 跳转到对于的界面
+        let data = $(this).serialize();
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://www.liulongbin.top:3007/api/login',
+            data: data,//检查表单那么的属性值
+            success: function (res) {
+                console.log(data);
+                layer.msg(res.message);
+                if (res.status === 0) {
+                    location.href = '/index.html';
                 }
             }
         })
@@ -41,11 +63,11 @@ $(function () {
             }
         },
         repwd: (value) => {
-            let pwd = $('input[name="password"]').val().trim();
+            let pwd = $('.register input[name="password"]').val().trim();
             if (value !== pwd) {
                 return '俩次密码不一致';
             }
-        },
+        }
 
     })
 })
