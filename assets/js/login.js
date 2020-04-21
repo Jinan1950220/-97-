@@ -7,6 +7,8 @@ $(function () {
     $('.register a').click(function () {
         $('.register').hide().prev().show();
     })
+    let layer = layui.layer;
+    //-------------------注册功能---------------
     $('.register form').on('submit', function (e) {
         e.preventDefault();
         console.log(this);
@@ -17,7 +19,7 @@ $(function () {
             url: 'http://www.liulongbin.top:3007/api/reguser',
             data: data,
             success: (res) => {
-                alert(res.message);
+                layer.msg(res.message);
                 if (res.status === 0) {
                     $('.register').hide().prev().show();
                 }
@@ -39,10 +41,11 @@ $(function () {
             }
         },
         repwd: (value) => {
-            let pwd = $('input[name="paswwword"]').value().trim();
-            if (value != pwd) {
+            let pwd = $('input[name="password"]').val().trim();
+            if (value !== pwd) {
                 return '俩次密码不一致';
             }
-        }
+        },
+
     })
 })
