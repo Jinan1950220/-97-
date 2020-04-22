@@ -1,0 +1,18 @@
+/* 字体头像 */
+.text-avatar {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #419488;
+    line-height: 30px;
+    text-align: center;
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+}
+/* 默认先让头像隐藏一个 */
+.layui-nav-img {
+    display: none;
+}
