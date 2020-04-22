@@ -34,3 +34,12 @@
     color: #fff;
     font-size: 12px;
 }
+/* iframe */
+iframe{
+    width: 100%;
+    height: 100%;
+}
+/* 去掉iframe的滚动条   给父级div 加一个样式overflow：hidden */
+.layui-body {
+    overflow: hidden;
+}
