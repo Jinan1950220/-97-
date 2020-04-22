@@ -43,6 +43,7 @@ $(function () {
                 console.log(data);
                 layer.msg(res.message);
                 if (res.status === 0) {
+                    localStorage.setItem('token', res.token);
                     location.href = '/index.html';
                 }
             }
