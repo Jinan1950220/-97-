@@ -16,3 +16,21 @@
 .layui-nav-img {
     display: none;
 }
+.iconfont {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.layui-icon {
+    margin-right: 8px;
+}
+.userinfo {
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    user-select: none;
+}
+.welcome {
+    color: #fff;
+    font-size: 12px;
+}
