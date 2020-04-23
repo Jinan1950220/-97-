@@ -4,7 +4,7 @@ $(() => {
     renderForm = () => {
         $.ajax({
             type: 'GET',
-            url: 'http://www.liulongbin.top:3007/my/userinfo',
+            url: '/my/userinfo',
             success: (res) => {
                 console.log(res);
                 // { id,username,nickname,email}
@@ -14,9 +14,6 @@ $(() => {
                 // $('input[name="email"]').val(res.data.email);
                 form.val('user', res.data);
                 // 为表单赋值，对象是有要求的，对象的key要和表单各项的name属性相同
-            },
-            headers: {
-                Authorization: localStorage.getItem('token')
             }
         })
     };
@@ -32,11 +29,8 @@ $(() => {
         // 4.ajax提交数据给接口
         $.ajax({
             type: 'POST',
-            url: 'http://www.liulongbin.top:3007/my/userinfo',
+            url: '/my/userinfo',
             data: data,
-            headers: {
-                Authorization: localStorage.getItem('token')
-            },
             success: (res) => {
                 // console.log(res);
                 if (res.status === 0) {
@@ -47,4 +41,9 @@ $(() => {
             }
         })
     });
+    //---------------重置表单--------------
+    $('button[type ="reset"]').on('click', (e) => {
+        e.preventDefault();
+        renderForm();
+    })
 })

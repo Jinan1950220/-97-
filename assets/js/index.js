@@ -15,7 +15,7 @@ $(() => {
 var getUserInfo = () => {
     $.ajax({
         type: 'GET',
-        url: 'http://www.liulongbin.top:3007/my/userinfo',
+        url: '/my/userinfo',
         success: (res) => {
             // console.log(res);
             if (res.status === 0) {
@@ -35,9 +35,6 @@ var getUserInfo = () => {
                     $('.layui-nav-img').hide();
                 }
             }
-        },
-        headers: {
-            Authorization: localStorage.getItem('token')
         }
     })
 }

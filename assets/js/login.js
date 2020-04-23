@@ -16,7 +16,7 @@ $(function () {
         console.log(data);
         $.ajax({
             type: 'POST',
-            url: 'http://www.liulongbin.top:3007/api/reguser',
+            url: '/api/reguser',
             data: data,
             success: (res) => {
                 layer.msg(res.message);
@@ -34,10 +34,9 @@ $(function () {
         //获取账号与密码
         // 提交接口，完成登录 跳转到对于的界面
         let data = $(this).serialize();
-
         $.ajax({
             type: 'POST',
-            url: 'http://www.liulongbin.top:3007/api/login',
+            url: '/api/login',
             data: data,//检查表单那么的属性值
             success: function (res) {
                 console.log(data);
@@ -69,6 +68,5 @@ $(function () {
                 return '俩次密码不一致';
             }
         }
-
     })
 })
