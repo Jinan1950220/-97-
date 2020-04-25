@@ -57,6 +57,43 @@ $(() => {
         //获取id
 
     })
+    //-----------点击编辑，显示弹出层-------------
+    let form = layui.form;
+    $('body').on('click', '.edit', function () {
+        let id = $(this).attr('data-id');
+        let name = $(this).attr('data-name');
+        let alias = $(this).attr('data-alias');
+        edit_id = layer.open({
+            type: 1,
+            title: '添加文章类别',
+            area: ['420px', '240px'],
+            content: $('#edit').html(),//  可以使用字符串，亦可以使用DOM
+            success: function () {
+                form.val('editform', { id, name, alias })
+            }
+        });
+
+    });
+    $('body').on('submit', '#editform', function (e) {
+        e.preventDefault();
+        // let data = $(this).serialize();
+        // data = data.repalce('id', 'Id')
+        let data = $(this).serializeArray();
+        data[0].name = 'Id';
+        // alert(1)
+        $.ajax({
+            type: 'POST',
+            url: '/my/article/updatecate',
+            data: data,
+            success: (res) => {
+                layer.msg(res.message);
+                if (res.status === 0) {
+                    renderHtml();
+                    layer.close(edit_id);
+                }
+            }
+        })
+    })
 })
 
 

@@ -14,7 +14,7 @@ $(() => {
          * success:''
          * }
          */
-        console.log(options);
+        // console.log(options);
         options.url = 'http://www.liulongbin.top:3007' + options.url;
         //以/my 开头的url 需要设置headers
         // if (options.url.indexOf('/my') > -1) {
@@ -31,7 +31,7 @@ $(() => {
                     localStorage.removeItem('token');
                     location.href = '/login.html';
                 }
-                console.log(xhr);
+                // console.log(xhr);
             }
         }
     })
