@@ -15,7 +15,7 @@ $(function () {
 
     // 3. 初始化裁剪区域
     $image.cropper(options)
-    let stats = '已发布';
+    let state = '已发布';
     //点击不同的按钮，切换state的值
     $('.fabu').click(() => state = '已发布')
     $('.caogao').click(() => state = '草稿')
@@ -29,12 +29,12 @@ $(function () {
         fd.append('state', state);
         $image.cropper('getCroppedCanvas', {
             width: 400,
-            heigth: 280
+            height: 280
         }).toBlob(function (img) {
             fd.append('cover_img', img);
             console.log(fd);
             $.ajax({
-                post: 'POST',
+                type: 'POST',
                 url: '/my/article/add',
                 data: fd,
                 processData: false,
